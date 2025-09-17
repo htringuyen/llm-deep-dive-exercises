@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  llm:
+    build: ./docker   # build from the Dockerfile inside docker/ directory
+    container_name: llm_dde
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+#    working_dir: /workspace
+#    volumes:
+#      - ./:/workspace           # mount current project directory
+#    ports:
+#      - "8888:8888"             # ports section not needed with host networking
+#    command: >
+#      bash -lc "jupyter lab --ip=0.0.0.0 --no-browser --allow-root"

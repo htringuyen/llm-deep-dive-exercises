@@ -1,0 +1,14 @@
+# Use extra index to search both PyTorch CUDA repo and PyPI
+--extra-index-url https://download.pytorch.org/whl/cu126
+
+# PyTorch packages (will be found in CUDA index)
+torch==2.8.0
+torchvision==0.23.0
+
+# HuggingFace packages (will be found in PyPI)
+transformers==4.56.1
+datasets==4.0.0
+accelerate==1.10.1
+
+# Jupyter support (will be found in PyPI)
+jupyterlab==4.4.7
